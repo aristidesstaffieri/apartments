@@ -27,3 +27,12 @@ import_config "#{Mix.env}.exs"
 config :phoenix, :generators,
   migration: true,
   binary_id: false
+
+config :guardian, Guardian,
+  allowed_algos: ["HS512"], # optional
+  verify_module: Guardian.JWT,  # optional
+  issuer: "Apartments",
+  ttl: { 30, :days },
+  verify_issuer: true, # optional
+  secret_key: "lpDmC+cS4bR55h1aiPwLpKZg1YBKbWeTltwX/lMeY8Or3YAC6NPrf35MBvHv1wr8",
+  serializer: Apartments.GuardianSerializer
